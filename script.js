@@ -78,8 +78,8 @@ const emailOK = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 async function sendLead(email, source) {
   if (!CONFIG.ENDPOINT) return { mode: 'local' };
   const payload = {
-    email, source, page: location.href, date: new Date().toISOString(),
-    _subject: `YouLauncher lead [${source}]: ${email}`,
+    email, source: "YouLaunch", form: source, page: location.href, date: new Date().toISOString(),
+    _subject: `YouLaunch lead [${source}]: ${email}`,
     _template: "table",
   };
   if (CONFIG.ACCESS_KEY) payload.access_key = CONFIG.ACCESS_KEY;
