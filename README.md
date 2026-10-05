@@ -14,64 +14,41 @@
 
 🔗 **Live site:** https://fastpresspages.github.io/YouLauncher/
 
-## What this site is for
+## What we do
 
 | You are here | We do for you |
 |---|---|
-| 💡 **I have an idea** | Free audit, 5 user interviews, positioning in 10 words, go / no-go score |
-| 🏪 **I have a business** | Pricing + funnel fix, email drip that converts, referral engine ON |
-| 🚀 **I have a product** | Viral waitlist, launch week (PH / communities / press), momentum kit |
+| 💡 **I have an idea** | Free audit, user interviews, positioning in 10 words, go / no-go score |
+| 🏪 **I have a business** | Pricing and funnel fix, email drip that converts, referral engine on |
+| 🚀 **I have a product** | Viral waitlist, launch week across channels, post-launch momentum kit |
 
-One email-only form (no names, no passwords) captures the lead and delivers it
-straight to the founder's inbox with its source (`hero` / `card-idea` / `final`).
+One email-only form captures the lead and delivers it straight to the founder's
+inbox, tagged with where it came from (`hero` / `card-idea` / `final`).
 
 ## Highlights
 
-- 🃏 **Stacking cards deck** — each stage (`position: sticky`) slides over the last
-- 📊 Animated counters, growth-score bar, launch-week calendar, marquee
-- 🎉 Canvas confetti + referral-link reveal on every signup (`?ref=`)
+- 🃏 **Stacking cards deck** — each growth stage slides over the last
+- 🤝 **AI swarm, human taste** — AI drafts, humans approve, you sign off
+- 📊 Animated counters, shared live spot counter, growth-score bar, launch calendar
+- 🎉 Confetti and referral-link reveal on every signup
 - 📱 Fully responsive, zero dependencies, zero build step
 
-## Structure — 3 files only
+## Project structure
 
 ```
 YouLauncher/
-├── index.html   # PR #1 — content & structure
-├── style.css    # PR #2 — neon theme & stacking deck
-├── script.js    # PR #3 — effects & email delivery
+├── index.html   # content and structure
+├── style.css    # theme and stacking deck
+├── script.js    # interactions and lead delivery
 └── LICENSE
 ```
 
-## Email delivery (important)
+## Lead delivery
 
-Static hosting can't send mail alone, so the form POSTs to
-[FormSubmit](https://formsubmit.co) AJAX → inbox `meetcode99@gmail.com`.
-Configured in `script.js` (`CONFIG.ENDPOINT`).
+Form submissions are delivered via [FormSubmit](https://formsubmit.co) to the
+founder inbox, configured in `script.js` (`CONFIG.ENDPOINT`). The form requires
+an `https` origin and one-time inbox activation before first delivery.
 
-> ⚠️ **Two gotchas, both by design:**
->
-> 1. **Local files are blocked** — FormSubmit rejects `file://` pages. Preview with
->    `npx serve` (or any static server) and open the `http://localhost` URL.
->    The form detects `file://` and tells the visitor exactly that.
-> 2. **First submit = activation** — the first-ever submission sends an *activation*
->    email (check spam). Click it once; every lead after that lands in the inbox
->    with subject `YouLauncher lead [source]: <email>`.
+## Contact
 
-## Run locally
-
-```powershell
-cd C:\Users\shahm\Projects\YouLauncher
-npx serve   # then open the http://localhost URL it prints
-```
-
-## Deploy
-
-Merge PRs → **Settings → Pages → Deploy from branch (`main`)**.
-Project-site URL: `https://fastpresspages.github.io/YouLauncher/`
-
-## Roadmap
-
-- [ ] Real testimonials + case-study metrics
-- [ ] Web3Forms / Sheets backup endpoint for leads
-- [ ] 60-sec launch-video section (B站 formula: music + flash text + UI loop)
-- [ ] Multilingual guides (EN + CN creator playbooks)
+📧 meetcode99@gmail.com
