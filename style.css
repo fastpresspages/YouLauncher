@@ -69,7 +69,10 @@ h1{font-size:clamp(52px,9vw,110px);line-height:.95;letter-spacing:-.04em}
 .deck{display:grid;gap:0}
 .card{position:sticky;top:90px;min-height:420px;border-radius:var(--r);padding:44px 40px;margin-bottom:40px;
   border:1px solid var(--line);display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;
-  box-shadow:0 -20px 60px rgba(0,0,0,.5);transform-origin:center top}
+  box-shadow:0 -20px 60px rgba(0,0,0,.5);transform-origin:center top;overflow:hidden}
+/* fanned deck: each card sticks a little lower so earlier cards peek out
+   as a rim instead of landing pixel-exact (05/06 text collision) */
+.c1{top:92px}.c2{top:104px}.c3{top:116px}.c4{top:128px}.c5{top:140px}.c6{top:152px}
 .c1{background:linear-gradient(135deg,#16162a,#1d1040)}
 .c2{background:linear-gradient(135deg,#101d1a,#0f2f2b)}
 .c3{background:linear-gradient(135deg,#22131f,#3a0f2b)}
@@ -122,6 +125,7 @@ footer{margin-top:40px;color:var(--mut);font-size:13px}footer a{color:var(--lime
 
 @media(max-width:760px){
   .card{grid-template-columns:1fr;padding:32px 24px;top:76px;min-height:0}
+  .c1{top:76px}.c2{top:84px}.c3{top:92px}.c4{top:100px}.c5{top:108px}.c6{top:116px}
   .cols,.quotes{grid-template-columns:1fr}
   nav{width:94vw;justify-content:space-between}.nav-links a:not(.btn){display:none}
   .capture.big{transform:none}.capture{flex-direction:column;border-radius:22px}.capture button{width:100%}
