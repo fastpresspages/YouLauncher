@@ -75,6 +75,7 @@ h1{font-size:clamp(52px,9vw,110px);line-height:.95;letter-spacing:-.04em}
 .c3{background:linear-gradient(135deg,#22131f,#3a0f2b)}
 .c4{background:linear-gradient(135deg,#0f1a33,#122a5e)}
 .c5{background:linear-gradient(135deg,#1c1a08,#3d3405)}
+.c6{background:linear-gradient(135deg,#1c0b26,#6d28d9)}
 .num{position:absolute;top:22px;right:30px;font-size:64px;font-weight:700;opacity:.12;font-family:"Space Grotesk"}
 .card h3{font-size:32px;margin-bottom:12px}
 .card p{color:#d6d2ef;line-height:1.6}
