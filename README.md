@@ -24,7 +24,6 @@
 - [How this compounds into scale](#how-this-compounds-into-scale)
 - [Site highlights](#site-highlights)
 - [Project structure](#project-structure)
-- [Lead delivery](#lead-delivery)
 - [Contact](#contact)
 
 ## What we do
@@ -117,14 +116,6 @@ YouLauncher/
 ├── script.js    # interactions, counters, referral tracking, lead delivery
 └── LICENSE
 ```
-
-## Lead delivery
-
-Form submissions are delivered via [FormSubmit](https://formsubmit.co) to the
-founder inbox, configured in `script.js` (`CONFIG.ENDPOINT`). Each lead arrives
-tagged with `source` (YouLaunch), `form` (hero / card-idea / final), and
-`referredBy` (referral code or `-`). The form requires an `https` origin and
-one-time inbox activation before first delivery.
 
 ## Contact
 
