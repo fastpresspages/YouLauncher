@@ -51,6 +51,7 @@ h1{font-size:clamp(52px,9vw,110px);line-height:.95;letter-spacing:-.04em}
 .micro{color:var(--mut);font-size:13px;margin-top:14px}
 .form-msg{min-height:22px;font-size:14px;margin-top:10px;color:var(--lime)}
 .form-msg.err{color:#ff7b7b}
+.ref-note{font-size:14px;color:var(--lime);border:1px dashed rgba(200,255,62,.5);background:rgba(200,255,62,.08);padding:10px 20px;border-radius:100px;margin-top:12px}
 
 .stats{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap;justify-content:center}
 .stats b{display:block;font-size:30px;font-family:"Space Grotesk"}.stats i{color:var(--mut);font-style:normal;font-size:13px}

@@ -75,10 +75,10 @@ const KEY = 'youlauncher_emails';
 const getAll = () => { try { return JSON.parse(localStorage.getItem(KEY)) || [] } catch { return [] } };
 const emailOK = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 
-async function sendLead(email, source) {
+async function sendLead(email, source, referredBy) {
   if (!CONFIG.ENDPOINT) return { mode: 'local' };
   const payload = {
-    email, source, page: location.href, date: new Date().toISOString(),
+    email, source, referredBy: referredBy || '-', page: location.href, date: new Date().toISOString(),
     _subject: `YouLauncher lead [${source}]: ${email}`,
     _template: "table",
   };
@@ -130,6 +130,31 @@ function paintSpots() {
 }
 loadCount();
 
+// 8. REFERRAL TRACKING (?ref=CODE) — zero backend. Each code gets two shared
+// Abacus counters: ref-CODE-v (referred visits) and ref-CODE-c (referred signups).
+// Attribution also lands in your inbox as the `referredBy` row.
+const REF_STORE = 'youlauncher_referred_by';
+const getRef = () => { try { return localStorage.getItem(REF_STORE) || ''; } catch { return ''; } };
+async function refCount(code, hit) {
+  try {
+    const r = await fetch(`https://abacus.jasoncameron.dev/${hit ? 'hit' : 'get'}/${COUNT.NS}/${code}`);
+    if (!r.ok) throw 0;
+    return (await r.json()).value;
+  } catch { return null; }
+}
+(async function initReferral() {
+  const raw = new URLSearchParams(location.search).get('ref') || '';
+  const code = raw.trim().toLowerCase();
+  if (!/^[a-z0-9.-]{3,64}$/.test(code)) return;
+  try { localStorage.setItem(REF_STORE, code); } catch { /* private mode */ }
+  refCount(`ref-${code}-v`, true); // count the referred visit, fire-and-forget
+  const note = $('#refNote');
+  if (note) {
+    note.hidden = false;
+    note.textContent = `🎉 You were invited by ${code} — you've jumped the queue. Drop your email to claim your spot.`;
+  }
+})();
+
 $$('[data-email-form]').forEach(form => {
   const input = $('input[type=email]', form);
   const btn = $('button[type=submit]', form);
@@ -151,14 +176,16 @@ $$('[data-email-form]').forEach(form => {
       return;
     }
     const old = btn.textContent; btn.textContent = 'Sending…'; btn.disabled = true;
+    const referredBy = getRef();
     try {
-      const r = await sendLead(v, source);
+      const r = await sendLead(v, source, referredBy);
       const all = getAll();
       if (!all.includes(v)) { all.push(v); localStorage.setItem(KEY, JSON.stringify(all)); }
       const pos = await claimSpot(); // shared +1, same number everywhere
       paintSpots();
+      if (referredBy) refCount(`ref-${referredBy}-c`, true); // credit the inviter, fire-and-forget
       say(msg, r.mode === 'remote'
-        ? `✓ Got it! We received ${v} — your growth plan is on its way.`
+        ? `✓ Got it! We received ${v}${referredBy ? ` (invited by ${referredBy} — queue jumped)` : ''} — your growth plan is on its way.`
         : `✓ Saved! (Demo mode — connect ENDPOINT in script.js so ${v} reaches your inbox.)`, false);
       burst(); // confetti
       showRef(v, pos);
@@ -182,7 +209,18 @@ function showRef(email, pos) {
   box.hidden = false;
   $('#refPos').textContent = '#' + pos;
   const slug = email.split('@')[0].replace(/[^a-z0-9]+/gi, '').toLowerCase() || 'you';
-  $('#refLink').textContent = `youlauncher.github.io/?ref=${slug}-${pos}`;
+  const code = `${slug}-${pos}`;
+  $('#refLink').textContent = `fastpresspages.github.io/YouLauncher/?ref=${code}`;
+  const stats = $('#refStats');
+  if (stats) {
+    stats.textContent = 'Counting your referrals…';
+    refCount(`ref-${code}-c`, false).then(n => {
+      stats.textContent = n == null
+        ? 'Share your link — referral counts appear here.'
+        : n === 0 ? 'No referrals yet — share your link to climb faster.'
+        : `🔥 ${n} friend${n === 1 ? '' : 's'} joined with your link!`;
+    });
+  }
   box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 $('#copyRef')?.addEventListener('click', async e => {
