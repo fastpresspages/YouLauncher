@@ -92,12 +92,43 @@ async function sendLead(email, source) {
   return { mode: 'remote' };
 }
 
-// live spot counter from stored count
+// live spot counter — shared across ALL visitors via Abacus (free, no key needed
+// for get/hit). Falls back to local-only math if the API is unreachable.
+// Counter seeded at 0: /create/youlauncher-fastpresspages/spots-claimed
+const COUNT = {
+  NS: "youlauncher-fastpresspages",
+  KEY: "spots-claimed",
+  BASE: 0, // starting number shown if API unreachable
+  MAX: 500,
+};
+let remoteCount = null; // null = unknown/offline
+async function loadCount() {
+  try {
+    const r = await fetch(`https://abacus.jasoncameron.dev/get/${COUNT.NS}/${COUNT.KEY}`);
+    if (!r.ok) throw new Error('count ' + r.status);
+    remoteCount = (await r.json()).value;
+  } catch { remoteCount = null; }
+  paintSpots();
+}
+async function claimSpot() {
+  // +1 on the shared counter; returns the new total (or local fallback)
+  try {
+    const r = await fetch(`https://abacus.jasoncameron.dev/hit/${COUNT.NS}/${COUNT.KEY}`);
+    if (!r.ok) throw new Error('count ' + r.status);
+    remoteCount = (await r.json()).value;
+    return Math.min(remoteCount, COUNT.MAX);
+  } catch {
+    remoteCount = null;
+    return Math.min(COUNT.BASE + getAll().length, COUNT.MAX);
+  }
+}
 function paintSpots() {
-  const base = 312, n = Math.min(base + getAll().length, 500);
+  const n = remoteCount == null
+    ? Math.min(COUNT.BASE + getAll().length, COUNT.MAX)
+    : Math.min(remoteCount, COUNT.MAX);
   $$('#spotCount').forEach(el => el.textContent = n);
 }
-paintSpots();
+loadCount();
 
 $$('[data-email-form]').forEach(form => {
   const input = $('input[type=email]', form);
@@ -124,8 +155,8 @@ $$('[data-email-form]').forEach(form => {
       const r = await sendLead(v, source);
       const all = getAll();
       if (!all.includes(v)) { all.push(v); localStorage.setItem(KEY, JSON.stringify(all)); }
+      const pos = await claimSpot(); // shared +1, same number everywhere
       paintSpots();
-      const pos = 312 + all.indexOf(v) + 1;
       say(msg, r.mode === 'remote'
         ? `✓ Got it! We received ${v} — your growth plan is on its way.`
         : `✓ Saved! (Demo mode — connect ENDPOINT in script.js so ${v} reaches your inbox.)`, false);
