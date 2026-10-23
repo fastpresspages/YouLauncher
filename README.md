@@ -7,7 +7,7 @@
 [![No build](https://img.shields.io/badge/build-none_needed-8b5cf6?style=flat)](./)
 [![License](https://img.shields.io/github/license/fastpresspages/YouLauncher?style=flat)](./LICENSE)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff5ca8?style=flat)](https://github.com/fastpresspages/YouLauncher/pulls)
-[![LaunchGrade](https://img.shields.io/badge/LaunchGrade-A%2B%2098%2F100-c8ff3e?style=flat)](https://fastpresspages.github.io/launchgrade/)
+[![LaunchGrade](https://img.shields.io/badge/LaunchGrade-A%2B%20100%2F100-c8ff3e?style=flat)](https://fastpresspages.github.io/launchgrade/)
 
 > **Have an idea? We'll grow it.** YouLauncher is a small growth studio for
 > people with an idea, a business or a product. Free audit, a clear next move,
@@ -107,9 +107,10 @@ YouLauncher/
 
 ## Audit
 
-The live page is scored with LaunchGrade. The local pre-deploy scan was
-**A+ 98/100** with two expected warnings: local static servers do not gzip, and
-the site intentionally has no analytics script. Run it yourself:
+The live page is scored with LaunchGrade. The scan after the rebuild returned
+**A+ 100/100** with one intentional warning: the site has no analytics script.
+The earlier **B- 71/100** snapshot and the current report are preserved in
+LaunchGrade's sample folder. Run it yourself:
 
 ```bash
 npx -p github:fastpresspages/launchgrade launchgrade https://fastpresspages.github.io/YouLauncher/
