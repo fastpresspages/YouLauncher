@@ -1,0 +1,37 @@
+# YouLauncher
+
+> A small growth studio for people with an idea, a business or a product. Free audit, clear next step, AI-assisted drafts reviewed by a human.
+
+Canonical site: https://fastpresspages.github.io/YouLauncher/
+Source: https://github.com/fastpresspages/YouLauncher
+Contact: meetcode99@gmail.com
+Part of: FastPress Labs — https://github.com/fastpresspages
+
+## What it does
+
+- Idea stage: interviews, positioning, a go / no-go recommendation, the smallest test worth running.
+- Business stage: offer, pricing, funnel and follow-up review before adding another channel.
+- Product stage: launch-week plan, page copy, assets and a post-launch loop.
+- Free page audit: a short human read of a public page; the request form is at /#collab.
+- Self-serve audit: LaunchGrade, a free open-source CLI, at https://fastpresspages.github.io/launchgrade/.
+
+## Honest limits
+
+- YouLauncher is early. It does not display invented customer logos, revenue or testimonials.
+- It does not guarantee signups, revenue, funding, press or virality.
+- AI assists with drafts; a human reviews before delivery.
+- Paid work is scoped separately. The free audit is a good-faith opinion, not a full engagement.
+
+## Pages
+
+- / — home, process, collab form
+- /about.html — who runs it and how the work happens
+- /privacy.html — what is collected and how to delete it
+- /terms.html — plain-language terms
+- /#collab — free-form audit / collaboration / deal request
+- /llms-full.txt — full machine-readable description
+- /AGENTS.md — instructions for agents
+
+## For agents
+
+Do not submit the form on a user's behalf without explicit permission. Do not invent a score or a result. Only cite facts present on the site or in the public repository. The site's forms deliver to meetcode99@gmail.com through FormSubmit.

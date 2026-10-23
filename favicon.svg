@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="YouLauncher">
+  <rect width="64" height="64" rx="15" fill="#07070d"/>
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="none" stroke="#c8ff3e" stroke-width="2"/>
+  <path d="M16 18l8 14v14h6V32l8-14h-6l-5 9-5-9z" fill="#c8ff3e"/>
+  <circle cx="45" cy="42" r="5" fill="#8b5cf6"/>
+</svg>

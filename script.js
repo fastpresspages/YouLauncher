@@ -92,6 +92,28 @@ async function sendLead(email, source, referredBy) {
   return { mode: 'remote' };
 }
 
+// free-form collab / deal enquiry — same inbox, no localStorage of the message
+async function sendCollab(data) {
+  if (!CONFIG.ENDPOINT) return { mode: 'local' };
+  const payload = {
+    ...data,
+    source: 'YouLaunch collab',
+    page: location.href,
+    date: new Date().toISOString(),
+    _subject: `YouLaunch collab [${data.type}]: ${data.email}`,
+    _template: 'table',
+  };
+  delete payload._honey;
+  if (CONFIG.ACCESS_KEY) payload.access_key = CONFIG.ACCESS_KEY;
+  const res = await fetch(CONFIG.ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error('endpoint ' + res.status);
+  return { mode: 'remote' };
+}
+
 // live spot counter — shared across ALL visitors via Abacus (free, no key needed
 // for get/hit). Falls back to local-only math if the API is unreachable.
 // Counter seeded at 0: /create/youlauncher-fastpresspages/spots-claimed
@@ -197,6 +219,51 @@ $$('[data-email-form]').forEach(form => {
       btn.textContent = old; btn.disabled = false;
     }
     form.reset();
+  });
+});
+
+// Free-form collab / deal form — no referral counter, no message stored locally.
+$$('[data-lead-form]').forEach(form => {
+  const btn = $('button[type=submit]', form);
+  const msg = $('[data-form-msg]', form);
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const honey = $('[name=_honey]', form);
+    if (honey && honey.value) return; // silently drop bots
+
+    const data = Object.fromEntries(new FormData(form));
+    const email = String(data.email || '').trim().toLowerCase();
+    const message = String(data.message || '').trim();
+    if (!emailOK(email)) {
+      say(msg, 'That email looks off. Try again?', true);
+      $('input[type=email]', form)?.focus();
+      return;
+    }
+    if (message.length < 10) {
+      say(msg, 'Tell us one useful sentence about what you are shipping.', true);
+      $('textarea[name=message]', form)?.focus();
+      return;
+    }
+    if (location.protocol === 'file:') {
+      say(msg, 'Inbox delivery is blocked on local files. Push to GitHub Pages (or run a local server) and submit from the https URL.', true);
+      return;
+    }
+
+    const old = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const r = await sendCollab({ ...data, email, message });
+      say(msg, r.mode === 'remote'
+        ? 'Got it. A human will read this and reply to ' + email + '.'
+        : 'Saved in demo mode. Set ENDPOINT in script.js to deliver it.', r.mode !== 'remote');
+      if (r.mode === 'remote') form.reset();
+    } catch (err) {
+      say(msg, 'Could not send (' + err.message + '). Email meetcode99@gmail.com directly.', true);
+    } finally {
+      btn.textContent = old;
+      btn.disabled = false;
+    }
   });
 });
 function say(el, txt, err) {

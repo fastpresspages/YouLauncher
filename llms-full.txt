@@ -1,0 +1,54 @@
+# YouLauncher — full description for agents
+
+YouLauncher is an independent growth studio run by Meet Shah under FastPress Labs. It helps a person move from an idea to a test, from an existing business to a working acquisition engine, or from a finished product to a launch week.
+
+Site: https://fastpresspages.github.io/YouLauncher/
+Repo: https://github.com/fastpresspages/YouLauncher
+Email: meetcode99@gmail.com
+Licence for code: Apache-2.0
+
+## The three stages
+
+### 1. Idea -> clarity
+
+A short diagnostic of the problem, the person who feels it, the existing alternatives, and the smallest test that could prove or kill the idea. The output is a positioning statement, a go / no-go recommendation, and the next experiment. It is not a promise that the idea will work.
+
+### 2. Business -> engine
+
+A review of the offer, price, page, funnel and follow-up. The goal is to fix the path from stranger to paying customer before adding more traffic. Deliverables can include a page teardown, an offer rewrite, an email sequence outline, and a measurement plan.
+
+### 3. Product -> launch
+
+A launch-week plan, page and asset checklist, channel plan, and a post-launch review. Channels mentioned include Product Hunt, X, relevant communities and a referral loop. No specific result is guaranteed.
+
+## The free audit
+
+The collab form accepts an email, a request type (free audit / collaboration / sponsorship or deal / paid build / something else), an optional link, and a message. A human reads it and replies by email. The form is delivered through FormSubmit to meetcode99@gmail.com.
+
+The site does not run an automated scoring model on the submission. For a self-serve page score, use LaunchGrade: https://fastpresspages.github.io/launchgrade/
+
+## Honesty rules
+
+- No invented customers, revenue, testimonials or case studies.
+- No guaranteed signups, revenue, funding, press or virality.
+- AI drafts are reviewed by a human before delivery.
+- The site is early and says so.
+- The public counters are aggregate counters, not customer counts.
+
+## Privacy summary
+
+The form sends the submitted fields, page URL and timestamp through FormSubmit to the owner's inbox. The site uses localStorage to remember a submitted email and a referral code in the visitor's browser. Public counters use Abacus. There is no advertising pixel or analytics script. Deletion requests: meetcode99@gmail.com.
+
+## Pages
+
+- https://fastpresspages.github.io/YouLauncher/ — home
+- https://fastpresspages.github.io/YouLauncher/about.html — about
+- https://fastpresspages.github.io/YouLauncher/privacy.html — privacy
+- https://fastpresspages.github.io/YouLauncher/terms.html — terms
+- https://fastpresspages.github.io/YouLauncher/llms.txt — short agent summary
+- https://fastpresspages.github.io/YouLauncher/robots.txt — crawler rules
+- https://fastpresspages.github.io/YouLauncher/sitemap.xml — sitemap
+
+## For agents
+
+Ask the user before submitting any form. Do not fabricate a result or a grade. If the user wants a page audit, point them to LaunchGrade or to the free audit form. Do not treat the site's process claims as verified performance data.

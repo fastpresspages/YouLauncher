@@ -1,122 +1,124 @@
-# ▲ YouLauncher — We Grow Ideas Into Businesses
+# YouLauncher — we grow ideas into businesses
 
-[![Live](https://img.shields.io/badge/Live-GitHub_Pages-c8ff3e?style=for-the-badge&logo=github)](https://fastpresspages.github.io/YouLauncher/)
+[![Live site](https://img.shields.io/badge/live-fastpresspages.github.io%2FYouLauncher-c8ff3e?style=for-the-badge&logo=github)](https://fastpresspages.github.io/YouLauncher/)
 [![HTML5](https://img.shields.io/badge/HTML5-semantic-E34F26?style=flat&logo=html5&logoColor=white)](./index.html)
 [![CSS3](https://img.shields.io/badge/CSS3-no_frameworks-1572B6?style=flat&logo=css3&logoColor=white)](./style.css)
 [![JavaScript](https://img.shields.io/badge/JS-vanilla-F7DF1E?style=flat&logo=javascript&logoColor=black)](./script.js)
 [![No build](https://img.shields.io/badge/build-none_needed-8b5cf6?style=flat)](./)
 [![License](https://img.shields.io/github/license/fastpresspages/YouLauncher?style=flat)](./LICENSE)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff5ca8?style=flat)](https://github.com/fastpresspages/YouLauncher/pulls)
+[![LaunchGrade](https://img.shields.io/badge/LaunchGrade-A%2B%2098%2F100-c8ff3e?style=flat)](https://fastpresspages.github.io/launchgrade/)
 
-> **Have an idea? We'll grow it.** YouLauncher is a growth partner powered by a
-> **multi-agent AI swarm with humans in the loop**: we validate your **idea**,
-> build your **business** engine, and **launch your product** so it spreads —
-> starting from a single email.
+> **Have an idea? We'll grow it.** YouLauncher is a small growth studio for
+> people with an idea, a business or a product. Free audit, a clear next move,
+> AI-assisted drafts reviewed by a human.
 
-🔗 **Live site:** https://fastpresspages.github.io/YouLauncher/
+- **Live:** https://fastpresspages.github.io/YouLauncher/
+- **Sister project:** [LaunchGrade](https://fastpresspages.github.io/launchgrade/) — grade any public launch page in 60 seconds
+- **Community:** [FastPress Labs](https://github.com/fastpresspages)
 
-## Contents
+## What it does
 
-- [What we do](#what-we-do)
-- [How our multi-agent system works](#how-our-multi-agent-system-works)
-- [The workflows that scale you](#the-workflows-that-scale-you)
-- [Human-in-the-loop: speed without slop](#human-in-the-loop-speed-without-slop)
-- [How this compounds into scale](#how-this-compounds-into-scale)
-- [Site highlights](#site-highlights)
-- [Project structure](#project-structure)
-- [Contact](#contact)
-
-## What we do
-
-| You are here | We do for you |
+| You are here | The useful next move |
 |---|---|
-| 💡 **I have an idea** | Free audit, user interviews, positioning in 10 words, go / no-go score |
-| 🏪 **I have a business** | Pricing and funnel fix, email drip that converts, referral engine on |
-| 🚀 **I have a product** | Viral waitlist, launch week across channels, post-launch momentum kit |
+| 💡 **I have an idea** | A short diagnostic, positioning options, a go / no-go recommendation, and the smallest test worth running |
+| 🏪 **I have a business** | An offer, pricing, funnel and follow-up review before adding another channel |
+| 🚀 **I have a product** | A launch-week plan, page and asset checklist, channel plan, and a post-launch loop |
+| 🤝 **I want to collaborate** | A free-form form for collabs, sponsorship, deals or a scoped build |
 
-One email-only form captures the lead and delivers it straight to the founder's
-inbox, tagged with its source (`YouLaunch`) and origin form (`hero` /
-`card-idea` / `final`).
+The first read is free. Paid work is scoped separately in writing. No
+guaranteed signups, revenue, funding or press — and no invented case studies.
 
-## How our multi-agent system works
+## The free-form request
 
-One founder, one freelancer, or one generalist AI is a bottleneck. We work as a
-**team of specialized AI agents**, each owning one growth lane, all coordinated
-around your business:
+The `#collab` form on the home page accepts:
 
-| Agent lane | What it produces for you |
-|---|---|
-| 🔍 **Research agent** | Competitor teardowns (Product Hunt, BetaList, YC, Prefinery-style players), pricing benchmarks, review mining |
-| ✍️ **Copy agent** | Positioning in 10 words, headlines, Product Hunt copy, X threads, email drips, press kit |
-| 🎨 **Design agent** | Landing drafts, waitlist pages, social cards, demo-video shot lists |
-| ✅ **Checklist agent** | The 44-step launch playbook (29 pre-launch / 6 launch-day / 9 post-launch), tailored to your stage |
-| 📊 **Analytics agent** | Funnel math, referral K-factor tracking, bot-filtered signal (real signups, not vanity impressions) |
-| 🌀 **Referral agent** | Queue-jump mechanics, milestone rewards, 2-sided incentives, per-link tracking |
+- email
+- request type: free audit / collaboration / sponsorship or deal / paid build / something else
+- optional project link
+- a short message
 
-The lanes run **in parallel**, not in sequence — research, copy, and design move
-at the same time, so a full launch package that takes a solo team weeks ships in
-days.
+It posts through FormSubmit to the owner's inbox. The three email-only forms
+(hero, idea card, final CTA) remain in place, tagged by source so replies have
+context.
 
-## The workflows that scale you
+## How the work happens
 
-Every engagement follows the same operating loop, tuned to your stage:
+1. **You describe the stage.** A link and one paragraph is enough.
+2. **AI assists with the drafts.** Research, positioning options, copy,
+   checklists and launch assets.
+3. **A human reviews before delivery.** Nothing is sent or published without a
+   person deciding it is good enough.
+4. **You keep the final call.** The plan is a recommendation, not a promise.
 
-1. **Audit (free, 48h)** — a human reads your idea, business, or product and
-   replies with a growth plan. AI drafts it, a human approves it.
-2. **Validate (idea stage)** — 5 user interviews, one landing test, price-before-code.
-   Kill bad ideas in 7 days instead of funding them for 7 months.
-3. **Engine (business stage)** — fix the offer, the funnel, and the email drip
-   (subject lines drive ~64% of opens). Install the referral loop so every
-   customer can bring one more.
-4. **Launch (product stage)** — viral waitlist in a day, launch week fired across
-   Product Hunt, communities, newsletter, and press at once. No 1-upvote ghost
-   launches: 30 warm supporters booked before day one.
-5. **Momentum (every week after)** — testimonials harvested into case studies,
-   changelog shipped as newsletter, investor updates written. Launch day is day
-   one, not the finish line.
+## What is in the site
 
-## Human-in-the-loop: speed without slop
+- Stacking-card journey through idea → business → product → growth → scale
+- Free-form collab / deal form with validation, honeypot and file:// warning
+- Email capture with source tags, referral `?ref=` tracking and shared counters
+- Honest process section: no fake testimonials, no invented customer logos
+- Trust pages: [about](./about.html), [privacy](./privacy.html), [terms](./terms.html)
+- Agent-readable [llms.txt](./llms.txt), [llms-full.txt](./llms-full.txt), [AGENTS.md](./AGENTS.md)
+- SEO: canonical, Open Graph, Twitter card, JSON-LD (Organization, WebSite, FAQPage)
+- Crawler files: [robots.txt](./robots.txt), [sitemap.xml](./sitemap.xml)
+- Brand assets: `favicon.svg`, `og.png` (1200×630)
 
-AI generates; humans decide. Nothing reaches you — or your customers — without
-passing two gates:
+## Run it locally
 
-- **Agent draft → human review.** Every word, number, and design passes a human
-  who has launched before. Hallucinations, hype, and off-voice copy die here.
-- **Human polish → your approval.** You see the final call before anything
-  ships. Your taste is the last gate, not an afterthought.
+No build step, no dependencies.
 
-The result: agency output at software speed, with a human accountable for every
-line.
+```bash
+# any static server works
+python -m http.server 4180
+# then open http://127.0.0.1:4180/
+```
 
-## How this compounds into scale
-
-- **Referred customers are worth more** — +59% lifetime value, −18% churn, ~4×
-  conversion versus cold traffic. Our loops turn one signup into many.
-- **Positioning compounds** — 10 clear words beat 10 clever pages. Everything
-  (ads, emails, launch copy) reuses one validated message.
-- **Launching becomes a habit** — weekly ship logs and a standing checklist mean
-  every release launches bigger than the last, instead of starting from zero.
-- **You keep the engine** — playbooks, templates, counters, and tracking stay
-  with your team. We scale you, then you scale yourself.
-
-## Site highlights
-
-- 🃏 **Stacking cards deck** — each growth stage slides over the last
-- 🤝 **AI swarm, human taste** — the operating model, presented as the 6th card
-- 📊 Shared live spot counter, per-link `?ref=` visit + signup tracking with inbox attribution
-- 🎉 Confetti and referral-link reveal on every signup
-- 📱 Fully responsive, zero dependencies, zero build step
+Do not test the forms from `file://`; FormSubmit rejects local-file posts. Use a
+local HTTP server or the live GitHub Pages URL.
 
 ## Project structure
 
-```
+```text
 YouLauncher/
-├── index.html   # content and structure
-├── style.css    # theme and stacking deck
-├── script.js    # interactions, counters, referral tracking, lead delivery
+├── index.html          # home, process, FAQ, collab form
+├── style.css           # theme, stacking cards, forms, legal pages
+├── script.js           # email capture, referral, counters, collab handler
+├── about.html
+├── privacy.html
+├── terms.html
+├── llms.txt
+├── llms-full.txt
+├── AGENTS.md
+├── robots.txt
+├── sitemap.xml
+├── favicon.svg
+├── og.png
 └── LICENSE
+```
+
+## Honesty rules
+
+- No fake customers, revenue, testimonials or case studies.
+- No guaranteed outcomes.
+- AI assists; a human reviews.
+- Public counters are aggregate counters, not customer counts.
+- The site is early and says so. If a result is published later, it will include
+  a date, a source and permission.
+
+## Audit
+
+The live page is scored with LaunchGrade. The local pre-deploy scan was
+**A+ 98/100** with two expected warnings: local static servers do not gzip, and
+the site intentionally has no analytics script. Run it yourself:
+
+```bash
+npx -p github:fastpresspages/launchgrade launchgrade https://fastpresspages.github.io/YouLauncher/
 ```
 
 ## Contact
 
-📧 meetcode99@gmail.com
+- Email: meetcode99@gmail.com
+- Collab / deal form: https://fastpresspages.github.io/YouLauncher/#collab
+- GitHub: https://github.com/fastpresspages/YouLauncher
+
+Code is licensed under Apache-2.0. The brand and site copy are not.
