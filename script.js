@@ -75,6 +75,16 @@ const KEY = 'youlauncher_emails';
 const getAll = () => { try { return JSON.parse(localStorage.getItem(KEY)) || [] } catch { return [] } };
 const emailOK = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 
+// FormSubmit can return HTTP 200 with {"success":"false"}. Treat that as a failure
+// so the UI never claims an email was delivered when it was not.
+async function ensureDelivered(res) {
+  let data = null;
+  try { data = await res.json(); } catch { /* non-JSON response */ }
+  if (!res.ok || data?.success === false || data?.success === 'false') {
+    throw new Error((data && data.message) || ('endpoint ' + res.status));
+  }
+}
+
 async function sendLead(email, source, referredBy) {
   if (!CONFIG.ENDPOINT) return { mode: 'local' };
   const payload = {
@@ -88,7 +98,7 @@ async function sendLead(email, source, referredBy) {
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify(payload),
   });
-  if (!res.ok) throw new Error('endpoint ' + res.status);
+  await ensureDelivered(res);
   return { mode: 'remote' };
 }
 
@@ -110,7 +120,7 @@ async function sendCollab(data) {
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify(payload),
   });
-  if (!res.ok) throw new Error('endpoint ' + res.status);
+  await ensureDelivered(res);
   return { mode: 'remote' };
 }
 
